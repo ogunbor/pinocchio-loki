@@ -1,6 +1,6 @@
 use pinocchio::program_error::ProgramError;
 
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, shank::ShankType)]
 pub enum MyProgramError {
     // overflow error
     WriteOverflow,

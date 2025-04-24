@@ -62,7 +62,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e89da841a80418a9b391ebaea17f5c112ffaaa96f621d2c285b5174da76b9011"
 dependencies = [
  "cfg-if",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "once_cell",
  "version_check",
  "zerocopy 0.7.35",
@@ -106,6 +106,12 @@ checksum = "819e7219dbd41043ac279b19830f2efc897156490d7fd6ea916720117ee66311"
 dependencies = [
  "libc",
 ]
+
+[[package]]
+name = "anyhow"
+version = "1.0.98"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e16d2d3311acee920a9eb8d33b8cbc1787ce4a264e85f964c2404b969bdcd487"
 
 [[package]]
 name = "ark-bn254"
@@ -244,9 +250,9 @@ checksum = "eab1c04a571841102f5345a8fc0f6bb3d31c315dec879b5c6e42e40ce7ffa34e"
 
 [[package]]
 name = "async-compression"
-version = "0.4.22"
+version = "0.4.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "59a194f9d963d8099596278594b3107448656ba73831c9d8c783e613ce86da64"
+checksum = "b37fc50485c4f3f736a4fb14199f6d5f5ba008d7f28fe710306c92780f004c07"
 dependencies = [
  "brotli",
  "flate2",
@@ -332,9 +338,9 @@ dependencies = [
 
 [[package]]
 name = "blake3"
-version = "1.8.1"
+version = "1.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "389a099b34312839e16420d499a9cad9650541715937ffbdd40d36f49e77eeb3"
+checksum = "3888aaa89e4b2a40fca9848e400f6a658a5a3978de7be858e209cafa8be9a4a0"
 dependencies = [
  "arrayref",
  "arrayvec",
@@ -432,9 +438,9 @@ dependencies = [
 
 [[package]]
 name = "brotli"
-version = "7.0.0"
+version = "8.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cc97b8f16f944bba54f0433f07e30be199b6dc2bd25937444bbad560bcea29bd"
+checksum = "cf19e729cdbd51af9a397fb9ef8ac8378007b797f8273cfbfdf45dcaa316167b"
 dependencies = [
  "alloc-no-stdlib",
  "alloc-stdlib",
@@ -443,9 +449,9 @@ dependencies = [
 
 [[package]]
 name = "brotli-decompressor"
-version = "4.0.3"
+version = "5.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a334ef7c9e23abf0ce748e8cd309037da93e606ad52eb372e4ce327a0dcfbdfd"
+checksum = "874bb8112abecc98cbd6d81ea4fa7e94fb9449648c93cc89aa40c81c24d7de03"
 dependencies = [
  "alloc-no-stdlib",
  "alloc-stdlib",
@@ -1038,9 +1044,9 @@ dependencies = [
 
 [[package]]
 name = "getrandom"
-version = "0.2.15"
+version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c4567c8db10ae91089c99af84c68c38da3ec2f087c3f82960bcdbf3656b6f4d7"
+checksum = "335ff9f135e4384c8150d6f27c6daed433577f86b4750418338c01a1a2528592"
 dependencies = [
  "cfg-if",
  "js-sys",
@@ -2110,7 +2116,7 @@ version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
 dependencies = [
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
 ]
 
 [[package]]
@@ -2211,7 +2217,7 @@ checksum = "a4689e6c2294d81e88dc6261c768b63bc4fcdb852be6d1352498b114f61383b7"
 dependencies = [
  "cc",
  "cfg-if",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "libc",
  "untrusted",
  "windows-sys 0.52.0",
@@ -2414,6 +2420,52 @@ checksum = "75872d278a8f37ef87fa0ddbda7802605cb18344497949862c0d4dcb291eba60"
 dependencies = [
  "digest 0.10.7",
  "keccak",
+]
+
+[[package]]
+name = "shank"
+version = "0.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "23d894855493d4ce613b25550fe1ed1c62d0af5486b984579ba55e3f8c9631d5"
+dependencies = [
+ "shank_macro",
+]
+
+[[package]]
+name = "shank_macro"
+version = "0.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a9bf2645f8eebde043da69200195058e7b59806705104f908a31d05ca82844ce"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "shank_macro_impl",
+ "shank_render",
+ "syn 1.0.109",
+]
+
+[[package]]
+name = "shank_macro_impl"
+version = "0.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "93d0593f48acb0a722906416b1f6b8926f6571eb9af16d566a7c65427f269f50"
+dependencies = [
+ "anyhow",
+ "proc-macro2",
+ "quote",
+ "serde",
+ "syn 1.0.109",
+]
+
+[[package]]
+name = "shank_render"
+version = "0.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "121175ba61809189f888dc5822ebfd30fa0d91e1e1f61d25a4d40b0847b3075e"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "shank_macro_impl",
 ]
 
 [[package]]
@@ -3002,7 +3054,7 @@ checksum = "9ce496a475e5062ba5de97215ab39d9c358f9c9df4bb7f3a45a1f1a8bd9065ed"
 dependencies = [
  "bincode",
  "borsh 1.5.7",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "js-sys",
  "num-traits",
  "serde",
@@ -3268,6 +3320,7 @@ dependencies = [
  "pinocchio-pubkey",
  "pinocchio-system",
  "pinocchio-token",
+ "shank",
  "solana-sdk",
  "spl-token",
 ]
@@ -3346,7 +3399,7 @@ dependencies = [
  "bytemuck",
  "console_error_panic_hook",
  "console_log",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "lazy_static",
  "log",
  "memoffset",
@@ -3519,7 +3572,7 @@ dependencies = [
  "bytemuck_derive",
  "curve25519-dalek 4.1.3",
  "five8_const",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "js-sys",
  "num-traits",
  "rand 0.8.5",
@@ -4349,9 +4402,9 @@ dependencies = [
 
 [[package]]
 name = "tokio-util"
-version = "0.7.14"
+version = "0.7.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b9590b93e6fcc1739458317cccd391ad3955e2bde8913edf6f95f9e65a8f034"
+checksum = "66a539a9ad6d5d281510d5bd368c973d636c02dbf8a67300bfb6b950696ad7df"
 dependencies = [
  "bytes",
  "futures-core",
