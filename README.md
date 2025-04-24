@@ -75,4 +75,17 @@ Solana CLI Version: solana-cli 2.1.18 (src:f91c2fca; feat:3271415109, client:Aga
 
 ### 5. Client Generation
 
-WIP...
+Shank spport has been added to generate the client code for the program
+
+Run this from the root of the repo and chnage permissions for the bash script if needed (chmod +x gen-client.sh)
+
+```bash
+./gen-client.sh
+```
+
+- This will generate the client code in the `client` directory using Metaplex Solita library
+  - Idl is generated and stored in the `client/idl` directory
+  - Generated code structure [client](client/src/generated/):
+    - accounts - all the accounts are defined here
+    - instructions - all the instructions are defined here
+    - types - all the types are defined here

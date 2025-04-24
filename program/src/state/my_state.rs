@@ -12,7 +12,7 @@ use crate::{
 };
 
 #[repr(u8)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, shank::ShankType)]
 pub enum State {
     Uninitialized,
     Initialized,
@@ -20,7 +20,7 @@ pub enum State {
 }
 
 #[repr(C)] //keeps the struct layout the same across different architectures
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, shank::ShankAccount)]
 pub struct MyState {
     pub is_initialized: bool,
     pub owner: Pubkey,
