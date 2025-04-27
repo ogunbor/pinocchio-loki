@@ -22,14 +22,6 @@
           ]
         },
         {
-          "name": "sysvarRentAcc",
-          "isMut": true,
-          "isSigner": false,
-          "docs": [
-            "Sysvar rent account"
-          ]
-        },
-        {
           "name": "systemProgramAcc",
           "isMut": false,
           "isSigner": false,

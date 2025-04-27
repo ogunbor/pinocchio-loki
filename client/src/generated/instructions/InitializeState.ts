@@ -21,7 +21,6 @@ export const InitializeStateStruct = new beet.BeetArgsStruct<{
  *
  * @property [_writable_, **signer**] payerAcc
  * @property [_writable_] stateAcc
- * @property [_writable_] sysvarRentAcc
  * @property [] systemProgramAcc
  * @category Instructions
  * @category InitializeState
@@ -30,7 +29,6 @@ export const InitializeStateStruct = new beet.BeetArgsStruct<{
 export type InitializeStateInstructionAccounts = {
   payerAcc: web3.PublicKey
   stateAcc: web3.PublicKey
-  sysvarRentAcc: web3.PublicKey
   systemProgramAcc: web3.PublicKey
 }
 
@@ -59,11 +57,6 @@ export function createInitializeStateInstruction(
     },
     {
       pubkey: accounts.stateAcc,
-      isWritable: true,
-      isSigner: false,
-    },
-    {
-      pubkey: accounts.sysvarRentAcc,
       isWritable: true,
       isSigner: false,
     },

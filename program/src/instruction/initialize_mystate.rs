@@ -3,7 +3,7 @@ use pinocchio::{
     instruction::{Seed, Signer},
     program_error::ProgramError,
     pubkey::Pubkey,
-    sysvars::rent::Rent,
+    sysvars::{rent::Rent, Sysvar},
     ProgramResult,
 };
 
@@ -30,7 +30,7 @@ impl DataLen for InitializeMyStateIxData {
 }
 
 pub fn process_initilaize_state(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
-    let [payer_acc, state_acc, sysvar_rent_acc, _system_program] = accounts else {
+    let [payer_acc, state_acc, _system_program] = accounts else {
         return Err(ProgramError::NotEnoughAccountKeys);
     };
 
@@ -42,7 +42,7 @@ pub fn process_initilaize_state(accounts: &[AccountInfo], data: &[u8]) -> Progra
         return Err(ProgramError::AccountAlreadyInitialized);
     }
 
-    let rent = Rent::from_account_info(sysvar_rent_acc)?;
+    let rent = Rent::get()?;
 
     let ix_data = unsafe { load_ix_data::<InitializeMyStateIxData>(data)? };
 
