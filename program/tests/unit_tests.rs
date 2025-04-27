@@ -16,8 +16,6 @@ use solana_sdk::sysvar::Sysvar;
 
 pub const PROGRAM: Pubkey = Pubkey::new_from_array(ID);
 
-pub const RENT: Pubkey = pubkey!("SysvarRent111111111111111111111111111111111");
-
 pub const PAYER: Pubkey = pubkey!("41LzznNicELmc5iCR9Jxke62a3v1VhzpBYodQF5AQwHX");
 
 pub fn mollusk() -> Mollusk {
@@ -46,15 +44,11 @@ fn test_initialize_mystate() {
     //Initialize the accounts
     let payer_account = Account::new(1 * LAMPORTS_PER_SOL, 0, &system_program);
     let mystate_account = Account::new(0, 0, &system_program);
-    let min_balance = mollusk.sysvars.rent.minimum_balance(Rent::size_of());
-    let mut rent_account = Account::new(min_balance, Rent::size_of(), &RENT);
-    rent_account.data = get_rent_data();
 
     //Push the accounts in to the instruction_accounts vec!
     let ix_accounts = vec![
         AccountMeta::new(PAYER, true),
         AccountMeta::new(mystate_pda, false),
-        AccountMeta::new_readonly(RENT, false),
         AccountMeta::new_readonly(system_program, false),
     ];
 
@@ -78,7 +72,6 @@ fn test_initialize_mystate() {
     let tx_accounts = &vec![
         (PAYER, payer_account.clone()),
         (mystate_pda, mystate_account.clone()),
-        (RENT, rent_account.clone()),
         (system_program, system_account.clone()),
     ];
 

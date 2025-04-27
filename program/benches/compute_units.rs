@@ -31,14 +31,12 @@ fn main() {
     //Initialize the accounts
     let payer_account = Account::new(1 * LAMPORTS_PER_SOL, 0, &system_program);
     let mystate_account = Account::new(0, 0, &system_program);
-    let min_balance = mollusk.sysvars.rent.minimum_balance(0);
-    let rent_account = Account::new(min_balance, 0, &RENT);
 
     //Push the accounts in to the instruction_accounts vec!
     let ix_accounts = vec![
         AccountMeta::new(PAYER, true),
         AccountMeta::new(mystate_pda, false),
-        AccountMeta::new_readonly(RENT, false),
+        // AccountMeta::new_readonly(RENT, false),
         AccountMeta::new_readonly(system_program, false),
     ];
 
@@ -62,7 +60,7 @@ fn main() {
     let tx_accounts0 = &vec![
         (PAYER, payer_account.clone()),
         (mystate_pda, mystate_account.clone()),
-        (RENT, rent_account.clone()),
+        // (RENT, rent_account.clone()),
         (system_program, system_account.clone()),
     ];
 
