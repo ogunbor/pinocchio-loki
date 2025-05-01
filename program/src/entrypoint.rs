@@ -2,10 +2,9 @@
 
 use crate::instruction::{self, MyProgramInstruction};
 use pinocchio::{
-    account_info::AccountInfo, default_panic_handler, no_allocator, program_entrypoint,
+    account_info::AccountInfo, default_panic_handler, msg, no_allocator, program_entrypoint,
     program_error::ProgramError, pubkey::Pubkey, ProgramResult,
 };
-use pinocchio_log::log;
 
 // This is the entrypoint for the program.
 program_entrypoint!(process_instruction);
@@ -26,11 +25,11 @@ fn process_instruction(
 
     match MyProgramInstruction::try_from(ix_disc)? {
         MyProgramInstruction::InitializeState => {
-            log!("Ix:0");
+            msg!("Ix:0");
             instruction::process_initilaize_state(accounts, instruction_data)
         }
         MyProgramInstruction::UpdateState => {
-            log!("Ix:1");
+            msg!("Ix:1");
             instruction::process_update_state(accounts, instruction_data)
         }
     }
