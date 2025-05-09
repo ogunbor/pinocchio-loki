@@ -9,28 +9,43 @@
           "name": "payerAcc",
           "isMut": true,
           "isSigner": true,
-          "docs": ["Fee payer account"]
+          "docs": [
+            "Fee payer account"
+          ]
         },
         {
           "name": "stateAcc",
           "isMut": true,
           "isSigner": false,
-          "docs": ["New State account"]
+          "docs": [
+            "New State account"
+          ]
         },
         {
           "name": "sysvarRentAcc",
           "isMut": false,
           "isSigner": false,
-          "docs": ["Sysvar rent account"]
+          "docs": [
+            "Sysvar rent account"
+          ]
         },
         {
           "name": "systemProgramAcc",
           "isMut": false,
           "isSigner": false,
-          "docs": ["System program account"]
+          "docs": [
+            "System program account"
+          ]
         }
       ],
-      "args": [],
+      "args": [
+        {
+          "name": "initializeMyStateIxData",
+          "type": {
+            "defined": "InitializeMyStateIxData"
+          }
+        }
+      ],
       "discriminant": {
         "type": "u8",
         "value": 0
@@ -43,13 +58,17 @@
           "name": "payerAcc",
           "isMut": true,
           "isSigner": true,
-          "docs": ["Fee payer account"]
+          "docs": [
+            "Fee payer account"
+          ]
         },
         {
           "name": "stateAcc",
           "isMut": true,
           "isSigner": false,
-          "docs": ["State account"]
+          "docs": [
+            "State account"
+          ]
         }
       ],
       "args": [],
@@ -82,7 +101,10 @@
           {
             "name": "data",
             "type": {
-              "array": ["u8", 32]
+              "array": [
+                "u8",
+                32
+              ]
             }
           },
           {
@@ -94,6 +116,31 @@
     }
   ],
   "types": [
+    {
+      "name": "InitializeMyStateIxData",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "data",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
     {
       "name": "MyProgramError",
       "type": {

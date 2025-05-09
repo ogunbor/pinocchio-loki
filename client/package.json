@@ -1,6 +1,7 @@
 {
   "name": "client",
   "type": "commonjs",
+  "main": "src/generated/index.ts",
   "scripts": {
     "test": "bun test --timeout 100000"
   },

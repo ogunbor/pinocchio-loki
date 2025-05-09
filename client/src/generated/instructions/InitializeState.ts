@@ -5,17 +5,37 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as beet from "@metaplex-foundation/beet";
-import * as web3 from "@solana/web3.js";
+import * as beet from '@metaplex-foundation/beet'
+import * as web3 from '@solana/web3.js'
+import {
+  InitializeMyStateIxData,
+  initializeMyStateIxDataBeet,
+} from '../types/InitializeMyStateIxData'
 
 /**
  * @category Instructions
  * @category InitializeState
  * @category generated
  */
-export const InitializeStateStruct = new beet.BeetArgsStruct<{
-  instructionDiscriminator: number;
-}>([["instructionDiscriminator", beet.u8]], "InitializeStateInstructionArgs");
+export type InitializeStateInstructionArgs = {
+  initializeMyStateIxData: InitializeMyStateIxData
+}
+/**
+ * @category Instructions
+ * @category InitializeState
+ * @category generated
+ */
+export const InitializeStateStruct = new beet.BeetArgsStruct<
+  InitializeStateInstructionArgs & {
+    instructionDiscriminator: number
+  }
+>(
+  [
+    ['instructionDiscriminator', beet.u8],
+    ['initializeMyStateIxData', initializeMyStateIxDataBeet],
+  ],
+  'InitializeStateInstructionArgs'
+)
 /**
  * Accounts required by the _InitializeState_ instruction
  *
@@ -28,29 +48,33 @@ export const InitializeStateStruct = new beet.BeetArgsStruct<{
  * @category generated
  */
 export type InitializeStateInstructionAccounts = {
-  payerAcc: web3.PublicKey;
-  stateAcc: web3.PublicKey;
-  sysvarRentAcc: web3.PublicKey;
-  systemProgramAcc: web3.PublicKey;
-};
+  payerAcc: web3.PublicKey
+  stateAcc: web3.PublicKey
+  sysvarRentAcc: web3.PublicKey
+  systemProgramAcc: web3.PublicKey
+}
 
-export const initializeStateInstructionDiscriminator = 0;
+export const initializeStateInstructionDiscriminator = 0
 
 /**
  * Creates a _InitializeState_ instruction.
  *
  * @param accounts that will be accessed while the instruction is processed
+ * @param args to provide as instruction data to the program
+ *
  * @category Instructions
  * @category InitializeState
  * @category generated
  */
 export function createInitializeStateInstruction(
   accounts: InitializeStateInstructionAccounts,
-  programId = new web3.PublicKey("4ibrEMW5F6hKnkW4jVedswYv6H6VtwPN6ar6dvXDN1nT")
+  args: InitializeStateInstructionArgs,
+  programId = new web3.PublicKey('4ibrEMW5F6hKnkW4jVedswYv6H6VtwPN6ar6dvXDN1nT')
 ) {
   const [data] = InitializeStateStruct.serialize({
     instructionDiscriminator: initializeStateInstructionDiscriminator,
-  });
+    ...args,
+  })
   const keys: web3.AccountMeta[] = [
     {
       pubkey: accounts.payerAcc,
@@ -72,12 +96,12 @@ export function createInitializeStateInstruction(
       isWritable: false,
       isSigner: false,
     },
-  ];
+  ]
 
   const ix = new web3.TransactionInstruction({
     programId,
     keys,
     data,
-  });
-  return ix;
+  })
+  return ix
 }

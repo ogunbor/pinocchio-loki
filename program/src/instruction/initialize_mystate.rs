@@ -18,7 +18,7 @@ use crate::{
 };
 
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, shank::ShankType)]
 pub struct InitializeMyStateIxData {
     pub owner: Pubkey,
     pub data: [u8; 32],
