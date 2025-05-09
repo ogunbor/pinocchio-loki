@@ -1,3 +1,21 @@
+#### 2025-04-27 15:17:27.949481613 UTC
+
+Solana CLI Version: solana-cli 2.1.21 (src:8a085eeb; feat:1416569292, client:Agave)
+
+| Name              | CUs  | Delta |
+| ----------------- | ---- | ----- |
+| InitializeMyState | 3361 | --    |
+| UpdateMyState     | 230  | +15   |
+
+#### 2025-04-27 15:13:41.344009714 UTC
+
+Solana CLI Version: solana-cli 2.1.21 (src:8a085eeb; feat:1416569292, client:Agave)
+
+| Name              | CUs  | Delta |
+| ----------------- | ---- | ----- |
+| InitializeMyState | 3361 | -4    |
+| UpdateMyState     | 215  | --    |
+
 #### 2025-04-20 12:12:18.041858125 UTC
 
 Solana CLI Version: solana-cli 2.1.21 (src:8a085eeb; feat:1416569292, client:Agave)

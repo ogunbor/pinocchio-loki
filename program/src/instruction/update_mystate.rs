@@ -23,6 +23,10 @@ pub fn process_update_state(accounts: &[AccountInfo], data: &[u8]) -> ProgramRes
         return Err(ProgramError::NotEnoughAccountKeys);
     };
 
+    if unsafe { state_acc.owner() } != &crate::ID {
+        return Err(ProgramError::IllegalOwner);
+    }
+
     if !payer_acc.is_signer() {
         return Err(ProgramError::MissingRequiredSignature);
     }
