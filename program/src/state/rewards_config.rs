@@ -14,19 +14,15 @@ impl DataLen for RewardsConfig {
     const LEN: usize = core::mem::size_of::<RewardsConfig>();
 }
 
-impl Initialized for Fundraiser {
+impl Initialized for RewardsConfig {
     fn is_initialized(&self) -> bool {
         self.is_initialized
     }
 }
 
 impl RewardsConfig {
-    pub fn initialize(&mut self, 
-        pub rewards_bump: u8,
-        pub bump: u8
-    ){
-       self.rewards_bump = rewards_bump;
-       self.bump = bump; 
-    }      
+    pub fn initialize(&mut self, rewards_bump: u8, bump: u8) {
+        self.rewards_bump = rewards_bump;
+        self.bump = bump;
+    }
 }
-
