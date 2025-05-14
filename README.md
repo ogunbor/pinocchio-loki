@@ -5,7 +5,7 @@
 ### 1. clone the repo
 
 ```bash
-git clone git@github.com:Nagaprasadvr/solana-pinocchio-starter.git
+git clone git@github.com:Nagaprasadvr/pinocchio-loki.git
 ```
 
 ### 2. Directory structure

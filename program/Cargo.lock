@@ -3310,7 +3310,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-pinocchio-starter"
+name = "pinocchio-loki"
 version = "0.1.0"
 dependencies = [
  "mollusk-svm",
