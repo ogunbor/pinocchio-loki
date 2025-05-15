@@ -10,6 +10,14 @@ pub enum MyProgramError {
     PdaMismatch,
     // Invalid Owner
     InvalidOwner,
+    // Invalid Hex
+    InvalidHex,
+    // Invalid conversion price
+    InvalidPriceConversion,
+    // Time too short
+    TimeTooShort,
+    // Amount too small
+    DepositTooSmall,
 }
 
 impl From<MyProgramError> for ProgramError {

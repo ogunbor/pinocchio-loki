@@ -65,3 +65,9 @@ pub unsafe fn to_bytes<T: DataLen>(data: &T) -> &[u8] {
 pub unsafe fn to_mut_bytes<T: DataLen>(data: &mut T) -> &mut [u8] {
     core::slice::from_raw_parts_mut(data as *mut T as *mut u8, T::LEN)
 }
+
+pub unsafe fn get_feed_id_from_hex(hex_str: &str) -> Result<[u8; 32]> {
+    let mut bytes = [0u8; 32];
+    hex::decode_to_slice(hex_str, &mut bytes).map_err(|_| error!(MyProgramError::InvalidHex))?;
+    Ok(bytes)
+}
